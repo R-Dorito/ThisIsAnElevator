@@ -21,14 +21,33 @@ class LiftClass:
         for i in levels:
             print(i)
 
-    def initUp():
-        upQueue = []
-        print("up is init")
-        return upQueue
+    def initQue():
+        queue = []
+        print("Queue is init")
+        return queue
     
-    def initDown():
-        downQueue = []
-        print("down is init")
-        return downQueue
+    def requestFloor(floor, queue):
+        queue.append(floor)
+        queue.sort()
+        return queue
 
+    def moveUp(floors, queue):
+        for i in floors:
+            if i in queue:
+                stopLift()
+
+
+    
+    def moveDown():
+        pass
+
+    def stopLift():
+        # There should be a timer here in this project, something that moves the lift
+        # up and down
+        # This should open doors and have a wait
+        # Should it return something?
+        pass
+
+    def moveManager():
+        pass
     

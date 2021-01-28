@@ -5,8 +5,8 @@ from LiftManager import *
   
 try:
     levels = LiftClass.createFloors(6)
-    up = LiftClass.initUp()
-    down = LiftClass.initDown()
+    #up = LiftClass.initUp()
+    #down = LiftClass.initDown()
     LiftClass.showListOfFloors(levels) 
 except:
     print("Stage 1 program has failed")
