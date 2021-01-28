@@ -1,3 +1,8 @@
+import enum
+class Mode(enum.Enum):
+    UP = 0
+    DOWN = 1
+
 class Lift:
     def createFloors(self, levels):
         #How many floors are there?
@@ -12,5 +17,21 @@ class Lift:
             i += 1
 
         return floors
+
+    def initializeQueue():
+        up = intUp()
+        down = intDown()
+
+
+    #Move this elsewhere
+    def liftRequest(floor, mode):
+        # Mode in this case is whether I want to go up or down
+        if mode == Mode.DOWN:
+            #Add to the down 
+            pass
+        elif mode == Mode.UP:
+            #Add to the up list
+            pass
+   
 
 
