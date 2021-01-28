@@ -1,12 +1,13 @@
 from Lift import *
 
 class LiftManagerClass:
-    def initializeLift():
-        listOfFloors = LiftClass.createFloors(4)
+    def initializeLift(num):
+        listOfFloors = LiftClass.createFloors(num)
         global liftUpArray 
         global liftDownArray
         liftUpArray = []
         liftDownArray = []
+        print("lift initialized")
 
     def addToQueue(floor, mode):
         # Mode: is the lift going up or down?

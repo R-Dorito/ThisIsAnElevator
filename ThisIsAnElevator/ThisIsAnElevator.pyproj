@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3e8e67a3-ec08-4d77-806e-d9dd8f278b02</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ThisIsAnElevator.py</StartupFile>
+    <StartupFile>TestCase.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,7 +27,7 @@
     <Compile Include="LiftManager.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ThisIsAnElevator.py" />
+    <Compile Include="TestCase.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
