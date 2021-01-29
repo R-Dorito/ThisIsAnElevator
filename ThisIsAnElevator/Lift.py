@@ -6,6 +6,10 @@ class ModeClass(enum.Enum):
     DOWN = 1
 
 class LiftClass:
+    def __init__(self, levels):
+        self.levels = LiftClass.createFloors(levels)
+        self.queue = LiftClass.initQue()
+
     def createFloors(levels):
         # How many floors are there?
         # This should give me a list of floors. 
@@ -17,10 +21,11 @@ class LiftClass:
         while i <= levels:
             floors.append(i)
             i += 1
+        print("floors created")
         return floors
 
-    def showListOfFloors(levels):
-        for i in levels:
+    def showListOfFloors(self):
+        for i in self.levels:
             print(i)
 
     def initQue():
@@ -28,13 +33,16 @@ class LiftClass:
         print("Queue is init")
         return queue
     
-    def requestFloor(floor, queue, mode):
+    def requestLift(self, reqLevel, mode):
         # Doesn't use the mode yet
-        queue.append(floor)
-        queue.sort()
-        print("floor", floor, "requested")
-        return queue
+        self.queue.append({'reqLevel' : reqLevel, 'mode' : mode.name})
+        self.queue = sorted(self.queue, key = lambda i: i['reqLevel'])
+        print("floor", reqLevel, "requested")
+        return self.queue
     
+    def returnQueue(self):
+        return self.queue
+
     def stopLift():
         # There should be a timer here in this project, something that moves the lift
         # up and down
@@ -43,24 +51,32 @@ class LiftClass:
         print("lift stopped")
 
     
-    def moveUp(floors, queue):
-        for i in floors:
+    def moveUp(self):
+        # This will travel to every floor.
+        # Program is not efficient
+        # There needs to be a range here
+        top = self.queue[len(self.queue) - 1]
+        bottom = self.queue[0]
+
+        for i in range(len(self.levels)):            
+            LiftClass.clock(1)
             print("lift is at:", i)
-            #Time of lift moving
-            timeLift = 1
-            while timeLift >= 0:
-                    if LiftClass.liftTimer(timeLift) >= 0:
-                        timeLift -= 1
-            if i in queue:
+            if i in self.queue:
                 print("Lift has stopped at level:", i)
                 # Wait for the lift to stop, let people move
-                timeLift = 3
                 LiftClass.stopLift()
-                while timeLift >= 0:
-                    #Let the lift wait for 3 seconds
-                    if LiftClass.liftTimer(timeLift) >= 0:
-                        timeLift -= 1
+                LiftClass.clock(3)
 
+    def moveDown(self):
+        for i in reversed(range(len(self.levels))):   
+            print("rev")
+
+    def clock(t):
+        #Time of lift moving
+        timeLift = t
+        while timeLift >= 0:
+                if LiftClass.liftTimer(timeLift) >= 0:
+                    timeLift -= 1
 
     def liftTimer(timeLift):
         t = timeLift
