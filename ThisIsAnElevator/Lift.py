@@ -28,7 +28,8 @@ class LiftClass:
         print("Queue is init")
         return queue
     
-    def requestFloor(floor, queue):
+    def requestFloor(floor, queue, mode):
+        # Doesn't use the mode yet
         queue.append(floor)
         queue.sort()
         print("floor", floor, "requested")
@@ -45,14 +46,21 @@ class LiftClass:
     def moveUp(floors, queue):
         for i in floors:
             print("lift is at:", i)
+            #Time of lift moving
+            timeLift = 1
+            while timeLift >= 0:
+                    if LiftClass.liftTimer(timeLift) >= 0:
+                        timeLift -= 1
             if i in queue:
-                print("Lift is stopping")
+                print("Lift has stopped at level:", i)
+                # Wait for the lift to stop, let people move
                 timeLift = 3
+                LiftClass.stopLift()
                 while timeLift >= 0:
-                    LiftClass.stopLift()
                     #Let the lift wait for 3 seconds
                     if LiftClass.liftTimer(timeLift) >= 0:
                         timeLift -= 1
+
 
     def liftTimer(timeLift):
         t = timeLift
