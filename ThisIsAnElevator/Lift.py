@@ -57,7 +57,7 @@ class LiftClass:
 
     def moveDown(self):
         for i in reversed(range(len(self.levels))):   
-            print("rev")
+            print("Update, this is meant to run backwards")
 
     def clock(t):
         #Time of lift moving
