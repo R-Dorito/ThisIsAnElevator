@@ -55,9 +55,10 @@ class LiftClass:
                 LiftClass.stopLift()
                 LiftClass.clock(3)
 
-    def moveDown(self):
-        for i in reversed(range(len(self.levels))):   
-            print("Update, this is meant to run backwards")
+    def moveDown():
+        #for i in reversed(range(len(self.levels))):   
+        print("Update, this is meant to run backwards, length:", self.levels)
+
 
     def clock(t):
         #Time of lift moving
